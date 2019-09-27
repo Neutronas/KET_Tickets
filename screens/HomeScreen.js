@@ -1,10 +1,8 @@
 import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import {
-  Image,
-  Platform,
-  ScrollView,
   StyleSheet,
+<<<<<<< HEAD
   Text,
   TouchableOpacity,
   View
@@ -128,6 +126,18 @@ export default function HomeScreen() {
     /View> <
     /View> <
     /View>
+=======
+  View,
+} from 'react-native';
+
+import {MainProgress} from '../components/MainProgress';
+
+export default function HomeScreen() {
+  return (
+    <View style={styles.container}>
+      <MainProgress />
+    </View>
+>>>>>>> 99dfc8c833952c8f512b080d736aacd3f3822075
   );
 }
 
@@ -135,6 +145,7 @@ HomeScreen.navigationOptions = {
   header: null
 };
 
+<<<<<<< HEAD
 function DevelopmentModeNotice() {
   if (__DEV__) {
     const learnMoreButton = ( <
@@ -271,3 +282,12 @@ const styles = StyleSheet.create({
     color: "#2e78b7"
   }
 });
+=======
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center'
+  },
+});
+>>>>>>> 99dfc8c833952c8f512b080d736aacd3f3822075
