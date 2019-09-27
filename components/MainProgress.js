@@ -25,7 +25,11 @@ export class MainProgress extends Component {
     render() {
         return (
         <View>
-            <Question title={database.questions[this.state.currentQuestion].title} image={database.questions[this.state.currentQuestion].image} />
+            <Question 
+                title={database.questions[this.state.currentQuestion].title}
+                image={database.questions[this.state.currentQuestion].image} 
+                answers={database.questions[this.state.currentQuestion].answers}
+            />
             <Button
                 title="Kitas klausimas"
                 onPress={() => {
