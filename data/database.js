@@ -6,20 +6,24 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 1,
-                    text: "Raudonas automobilis pastatytas ne pagal taisykles"
+                    id: 5,
+                    text: "Hahahahaa",
+                    correct: true
                 },
                 {
                     id: 2,
-                    text: "Juodas automobilis pastatytas ne pagal taisykles"
+                    text: "Juodas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 3,
-                    text: "Baltas automobilis pastatytas ne pagal taisykles"
+                    text: "Baltas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 4,
-                    text: "Geltonas automobilis pastatytas ne pagal taisykles"
+                    text: "Geltonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
             ],
         },
@@ -30,19 +34,23 @@ export const database = {
             answers: [
                 {
                     id: 1,
-                    text: "Raudonas automobilis pastatytas ne pagal taisykles"
+                    text: "Raudonas automobilis pastatytas ne pagal taisykles",
+                    correct: true
                 },
                 {
                     id: 2,
-                    text: "Juodas automobilis pastatytas ne pagal taisykles"
+                    text: "Juodas automobilis pastatytas ne pagal taisykles",
+                    correct: true
                 },
                 {
                     id: 3,
-                    text: "Baltas automobilis pastatytas ne pagal taisykles"
+                    text: "Baltas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 4,
-                    text: "Geltonas automobilis pastatytas ne pagal taisykles"
+                    text: "Geltonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
             ],
         },
@@ -53,19 +61,23 @@ export const database = {
             answers: [
                 {
                     id: 1,
-                    text: "Raudonas automobilis pastatytas ne pagal taisykles"
+                    text: "Raudonas automobilis pastatytas ne pagal taisykles",
+                    correct: true
                 },
                 {
                     id: 2,
-                    text: "Juodas automobilis pastatytas ne pagal taisykles"
+                    text: "Juodas automobilis pastatytas ne pagal taisykles",
+                    correct: true
                 },
                 {
                     id: 3,
-                    text: "Baltas automobilis pastatytas ne pagal taisykles"
+                    text: "Baltas automobilis pastatytas ne pagal taisykles",
+                    correct: true
                 },
                 {
                     id: 4,
-                    text: "Geltonas automobilis pastatytas ne pagal taisykles"
+                    text: "Geltonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
             ],
         },
@@ -76,19 +88,23 @@ export const database = {
             answers: [
                 {
                     id: 1,
-                    text: "Raudonas automobilis pastatytas ne pagal taisykles"
+                    text: "Raudonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 2,
-                    text: "Juodas automobilis pastatytas ne pagal taisykles"
+                    text: "Juodas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 3,
-                    text: "Baltas automobilis pastatytas ne pagal taisykles"
+                    text: "Baltas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 4,
-                    text: "Geltonas automobilis pastatytas ne pagal taisykles"
+                    text: "Geltonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
             ],
         },
@@ -99,19 +115,23 @@ export const database = {
             answers: [
                 {
                     id: 1,
-                    text: "Raudonas automobilis pastatytas ne pagal taisykles"
+                    text: "Raudonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 2,
-                    text: "Juodas automobilis pastatytas ne pagal taisykles"
+                    text: "Juodas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 3,
-                    text: "Baltas automobilis pastatytas ne pagal taisykles"
+                    text: "Baltas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
                 {
                     id: 4,
-                    text: "Geltonas automobilis pastatytas ne pagal taisykles"
+                    text: "Geltonas automobilis pastatytas ne pagal taisykles",
+                    correct: false
                 },
             ],
         },

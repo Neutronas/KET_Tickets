@@ -13,7 +13,7 @@ export class PossibleAnswer extends Component {
             onPress={this._handlePress}>
             <View style={{ flexDirection: 'row' }}>
                 <View style={styles.optionIconContainer}>
-                    <Ionicons name={this.state.isMarked ? 'ios-checkbox' : 'ios-checkbox-outline'} size={26} color="#2e78b7" />
+                    <Ionicons name={this.state.isMarked ? 'ios-checkbox-outline' : 'ios-checkbox'} size={26} color="#2e78b7" />
                 </View>
                 <View style={styles.optionTextContainer}>
                     <Text style={styles.optionText}>{this.props.text}</Text>
@@ -23,11 +23,13 @@ export class PossibleAnswer extends Component {
     );
     }
 
-    state = { isMarked: false};
+    state = { isMarked: true};
 
     _handlePress = () => {
     var marked = !this.state.isMarked;
     this.setState({isMarked: marked});
+    if(this.state.isMarked && this.props.isCorrect)
+      alert('correct!');
   }
 }
 

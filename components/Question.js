@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Button, Text, View, StyleSheet, Image } from 'react-native';
 import { PossibleAnswer } from "./PossibleAnswer";
 
 export class Question extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isCorrect : false,
+      numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
+    }
+    alert(this.state.numberOfCorrectAnswers);
+  }
+
+  getNumberOfCorrectAnswers() {
+    var number = 0;
+    var array = this.props.answers;
+    for (let index = 0; index < array.length; index++) {
+      const answer = array[index];
+      if (answer.correct)
+        number++;
+    }
+    return number;
+  }
+
+
   render() {
     return (
+      
       <View>
         <Image source={this.props.image} />
         <Text style={styles.title}> {this.props.title}</Text>
         {this.props.answers.map((prop) => {
             return (
-                <PossibleAnswer key={prop.id} text={prop.text} />
+                <PossibleAnswer key={prop.id} text={prop.text} isCorrect={prop.correct} />
             );
         })}
-      </View>
+        </View>
     );
+
   }
 }
 

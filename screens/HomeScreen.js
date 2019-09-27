@@ -5,13 +5,16 @@ import {
   View,
 } from 'react-native';
 
-import {MainProgress} from '../components/MainProgress';
+import {Ticket} from '../components/Ticket';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <MainProgress />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Ticket />
+      </View>
+    </ScrollView>
   );
 }
 
