@@ -14,12 +14,10 @@ export class Question extends Component {
 
   getNumberOfCorrectAnswers() {
     var number = 0;
-    var array = this.props.answers;
-    for (let index = 0; index < array.length; index++) {
-      const answer = array[index];
+    this.props.answers.forEach(answer => {
       if (answer.correct)
         number++;
-    }
+    });
     return number;
   }
 

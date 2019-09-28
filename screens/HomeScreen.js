@@ -3,6 +3,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  StatusBar
 } from 'react-native';
 
 import { Ticket } from '../components/Ticket';
@@ -10,11 +11,12 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export default function HomeScreen() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Ticket />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" /> 
+       <ScrollView>
+          <Ticket />
+      </ScrollView>
+    </View>
   );
 }
 

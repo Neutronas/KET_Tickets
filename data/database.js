@@ -6,7 +6,7 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 5,
+                    id: 1,
                     text: "Hahahahaa",
                     correct: true
                 },
@@ -33,22 +33,22 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 1,
+                    id: 5,
                     text: "Raudonas automobilis pastatytas ne pagal taisykles",
                     correct: true
                 },
                 {
-                    id: 2,
+                    id: 6,
                     text: "Juodas automobilis pastatytas ne pagal taisykles",
                     correct: true
                 },
                 {
-                    id: 3,
+                    id: 7,
                     text: "Baltas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 4,
+                    id: 8,
                     text: "Geltonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
@@ -60,22 +60,22 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 1,
+                    id: 9,
                     text: "Raudonas automobilis pastatytas ne pagal taisykles",
                     correct: true
                 },
                 {
-                    id: 2,
+                    id: 10,
                     text: "Juodas automobilis pastatytas ne pagal taisykles",
                     correct: true
                 },
                 {
-                    id: 3,
+                    id: 11,
                     text: "Baltas automobilis pastatytas ne pagal taisykles",
                     correct: true
                 },
                 {
-                    id: 4,
+                    id: 12,
                     text: "Geltonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
@@ -87,22 +87,22 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 1,
+                    id: 13,
                     text: "Raudonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 2,
+                    id: 14,
                     text: "Juodas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 3,
+                    id: 15,
                     text: "Baltas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 4,
+                    id: 16,
                     text: "Geltonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
@@ -114,22 +114,22 @@ export const database = {
             image: require("../assets/images/ketPlaceholder.jpg"),
             answers: [
                 {
-                    id: 1,
+                    id: 17,
                     text: "Raudonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 2,
+                    id: 18,
                     text: "Juodas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 3,
+                    id: 19,
                     text: "Baltas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
                 {
-                    id: 4,
+                    id: 20,
                     text: "Geltonas automobilis pastatytas ne pagal taisykles",
                     correct: false
                 },
