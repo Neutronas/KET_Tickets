@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import { Ionicons } from '@expo/vector-icons';
 
+import { ticketsStore } from '../data/ticketsStore';
+
 export class PossibleAnswer extends Component {
 
   render() {
@@ -28,8 +30,11 @@ export class PossibleAnswer extends Component {
   _handlePress = () => {
     var marked = !this.state.isMarked;
     this.setState({ isMarked: marked });
-    if (this.state.isMarked && this.props.isCorrect)
-      alert('correct!');
+    if (this.state.isMarked && this.props.isCorrect) {
+      ticketsStore.currentQuestionCorrectAnswers += 1;
+    } else if(!this.state.isMarked && this.props.isCorrect) {
+      ticketsStore.currentQuestionCorrectAnswers -= 1;
+    }
   }
 }
 

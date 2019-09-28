@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Text, View, StyleSheet, Image } from 'react-native';
 import { PossibleAnswer } from "./PossibleAnswer";
+import { ticketsStore } from '../data/ticketsStore';
 
 export class Question extends Component {
 
@@ -10,6 +11,8 @@ export class Question extends Component {
       isCorrect: false,
       numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
     }
+    ticketsStore.markQuestion(this.props.id, this.getNumberOfCorrectAnswers())
+
   }
 
   getNumberOfCorrectAnswers() {
@@ -27,6 +30,7 @@ export class Question extends Component {
       this.setState({
         numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
       });
+      ticketsStore.markQuestion(this.props.id, this.getNumberOfCorrectAnswers())
     }
   }
 

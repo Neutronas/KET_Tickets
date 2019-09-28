@@ -4,6 +4,7 @@ import { Question } from './Question';
 
 // temp fake database file, will need rework
 import { database } from '../data/database';
+import { ticketsStore } from '../data/ticketsStore';
 
 export class Ticket extends Component {
     constructor(props) {
@@ -15,6 +16,13 @@ export class Ticket extends Component {
     }
 
     nextQuestion = () => {
+        ticketsStore.questions[this.state.currentQuestion].completed = true;
+        // Patikrinam ar atsakytas teisingai:
+        if (ticketsStore.questions[this.state.currentQuestion].correctAnswers == ticketsStore.currentQuestionCorrectAnswers) {
+            ticketsStore.questionisCorrect(this.state.currentQuestion);
+        }
+        // Butinai reikia nunulinti storage'e atsakytu teisingu klausimu kieki
+        ticketsStore.currentQuestionCorrectAnswers = 0;
         // Jei yra dar likusiu klausimu, rodom kita
         if (database.questions.length - 1 >= this.state.currentQuestion + 1) {
             var nextQuestion = this.state.currentQuestion + 1;
@@ -23,14 +31,15 @@ export class Ticket extends Component {
             });
         } else {
             Alert.alert('Testas baigtas');
+            console.log(ticketsStore.questions);
         }
-
     }
 
     render() {
         return (
             <View>
                 <Question
+                    id={database.questions[this.state.currentQuestion].id}
                     title={database.questions[this.state.currentQuestion].title}
                     image={database.questions[this.state.currentQuestion].image}
                     answers={database.questions[this.state.currentQuestion].answers}
