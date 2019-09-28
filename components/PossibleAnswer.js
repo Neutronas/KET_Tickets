@@ -29,10 +29,11 @@ export class PossibleAnswer extends Component {
   _handlePress = () => {
     var marked = !this.state.isMarked;
     this.setState({ isMarked: marked });
-    if (this.state.isMarked && this.props.isCorrect) {
-      ticketsStore.currentQuestionCorrectAnswers += 1;
-    } else if(!this.state.isMarked && this.props.isCorrect) {
-      ticketsStore.currentQuestionCorrectAnswers -= 1;
+    if (!marked) {
+      ticketsStore.addAnswerToMap(this.props.id);
+    }
+    else {
+      ticketsStore.removeAnswerFromMap(this.props.id);
     }
   }
 }

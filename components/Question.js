@@ -7,30 +7,22 @@ export class Question extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      isCorrect: false,
-      numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
-    }
-    ticketsStore.markQuestion(this.props.id, this.getNumberOfCorrectAnswers())
-
+    ticketsStore.markQuestion(this.props.id, this.getCorrectAnswerMap())
   }
 
-  getNumberOfCorrectAnswers() {
-    var number = 0;
+  getCorrectAnswerMap() {
+    var answerMap = [];
     this.props.answers.forEach(answer => {
       if (answer.correct)
-        number++;
+        answerMap.push(answer.id);
     });
-    return number;
+    return answerMap;
   }
 
   componentDidUpdate(prevProps) {
     // if props are different
     if (this.props.title !== prevProps.title) {
-      this.setState({
-        numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
-      });
-      ticketsStore.markQuestion(this.props.id, this.getNumberOfCorrectAnswers())
+      ticketsStore.markQuestion(this.props.id, this.getCorrectAnswerMap())
     }
   }
 
@@ -42,7 +34,7 @@ export class Question extends Component {
         <Text style={styles.title}> {this.props.title}</Text>
         {this.props.answers.map((prop) => {
           return (
-            <PossibleAnswer key={prop.id} text={prop.text} isCorrect={prop.correct} />
+            <PossibleAnswer key={prop.id} text={prop.text} isCorrect={prop.correct} id={prop.id} />
           );
         })}
       </View>
