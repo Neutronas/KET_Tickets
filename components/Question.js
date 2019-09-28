@@ -7,10 +7,9 @@ export class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCorrect : false,
+      isCorrect: false,
       numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
     }
-    alert(this.state.numberOfCorrectAnswers);
   }
 
   getNumberOfCorrectAnswers() {
@@ -24,28 +23,36 @@ export class Question extends Component {
     return number;
   }
 
+  componentDidUpdate(prevProps) {
+    // if props are different
+    if (this.props.title !== prevProps.title) {
+      this.setState({
+        numberOfCorrectAnswers: this.getNumberOfCorrectAnswers()
+      });
+    }
+  }
 
   render() {
     return (
-      
+
       <View>
         <Image source={this.props.image} />
         <Text style={styles.title}> {this.props.title}</Text>
         {this.props.answers.map((prop) => {
-            return (
-                <PossibleAnswer key={prop.id} text={prop.text} isCorrect={prop.correct} />
-            );
+          return (
+            <PossibleAnswer key={prop.id} text={prop.text} isCorrect={prop.correct} />
+          );
         })}
-        </View>
+      </View>
     );
 
   }
 }
 
 const styles = StyleSheet.create({
-    title: {
-      fontWeight: 'bold',
-      fontSize: 16,
-    }
+  title: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  }
 });
-  
+
