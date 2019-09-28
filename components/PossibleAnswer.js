@@ -5,7 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export class PossibleAnswer extends Component {
-
   render() {
     return (
       <TouchableWithoutFeedback
