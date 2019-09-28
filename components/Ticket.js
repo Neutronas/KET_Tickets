@@ -11,8 +11,14 @@ export class Ticket extends Component {
         super(props);
         this.state = {
             currentQuestion: 0,
-            correctness: []
         }
+    }
+
+    getInitialState() {
+        ticketsStore.questions = [];
+        this.setState  ({
+            currentQuestion: 0,
+        });
     }
 
     nextQuestion = () => {
@@ -43,7 +49,21 @@ export class Ticket extends Component {
                     correctAnswers += 1;
                 }
             });
-            Alert.alert('Testas baigtas', 'Viso klausimų: ' + ticketsStore.questions.length + '. Teisingai atsakyta: ' + correctAnswers + '. Surinkta ' + Math.floor((correctAnswers / ticketsStore.questions.length) * 100) + '%');
+            Alert.alert(
+                'Testas baigtas', 
+                'Viso klausimų: ' + ticketsStore.questions.length + '. Teisingai atsakyta: ' + correctAnswers + '. Surinkta ' + Math.floor((correctAnswers / ticketsStore.questions.length) * 100) + '%',
+                [
+                    {
+                        text: 'Iš naujo',
+                        onPress: () => this.getInitialState(),
+                        style: 'cancel',
+                      },
+                    {
+                      text: 'Rezultatas',
+                      onPress: () => console.log('Nori peržiūrėti rezultatus'),
+                    },
+                  ],
+                );
             console.log(ticketsStore.questions);
         }
     }

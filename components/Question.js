@@ -7,7 +7,9 @@ export class Question extends Component {
 
   constructor(props) {
     super(props);
-    ticketsStore.markQuestion(this.props.id, this.getCorrectAnswerMap())
+    ticketsStore.markQuestion(this.props.id, this.getCorrectAnswerMap());
+    console.log('ahahahaha');
+
   }
 
   getCorrectAnswerMap() {
