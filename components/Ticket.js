@@ -30,7 +30,13 @@ export class Ticket extends Component {
                 currentQuestion: nextQuestion
             });
         } else {
-            Alert.alert('Testas baigtas');
+            let correctAnswers = 0;
+            ticketsStore.questions.forEach(question => {
+                if (question.correct) {
+                    correctAnswers += 1;
+                }
+            });
+            Alert.alert('Testas baigtas', 'Viso klausimų: ' + ticketsStore.questions.length + '. Teisingai atsakyta: ' + correctAnswers + '. Surinkta ' + Math.floor((correctAnswers / ticketsStore.questions.length) * 100) + '%' );
             console.log(ticketsStore.questions);
         }
     }
