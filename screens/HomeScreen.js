@@ -12,16 +12,15 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" /> 
-       <ScrollView>
-          <Ticket />
+      <ScrollView>
+        <Ticket />
       </ScrollView>
     </View>
   );
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  title: 'KET Bilietas',
 };
 
 const styles = StyleSheet.create({
