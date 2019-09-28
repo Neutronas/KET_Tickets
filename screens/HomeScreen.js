@@ -8,13 +8,14 @@ import {
 
 import { Ticket } from '../components/Ticket';
 import { ScrollView } from 'react-native-gesture-handler';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" /> 
-       <ScrollView>
-          <Ticket />
+      <StatusBar barStyle="dark-content" hidden={false} backgroundColor="#00BCD4" translucent={true} />
+      <ScrollView style={{ marginTop: getStatusBarHeight() }}>
+        <Ticket />
       </ScrollView>
     </View>
   );

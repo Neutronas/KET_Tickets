@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import { Ionicons } from '@expo/vector-icons';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export class PossibleAnswer extends Component {
 
   render() {
     return (
-      <Touchable
+      <TouchableWithoutFeedback
         style={styles.option}
-        background={Touchable.Ripple('#ccc', false)}
         onPress={this._handlePress}>
         <View style={{ flexDirection: 'row' }}>
           <View style={styles.optionIconContainer}>
@@ -19,7 +19,7 @@ export class PossibleAnswer extends Component {
             <Text style={styles.optionText}>{this.props.text}</Text>
           </View>
         </View>
-      </Touchable>
+      </TouchableWithoutFeedback>
     );
   }
 
