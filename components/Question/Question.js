@@ -1,39 +1,34 @@
 import React, { useEffect } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+
 import { PossibleAnswer } from './PossibleAnswer';
-import { ticketsStore } from '../../data/ticketsStore';
 import QuestionTitle from './QuestionTitle';
 
-export default Question = ({ id, image, title, answers }) => {
-  useEffect(() => {
-    ticketsStore.markQuestion(id, getCorrectAnswerMap());
-  }, [id]);
+export default Question = ({ index, question }) => {
+  const dispatch = useDispatch();
 
-  const getCorrectAnswerMap = () => {
-    const answerMap = [];
-    answers.forEach(answer => {
-      if (answer.correct)
-        answerMap.push(answer.id);
+  const handleChange = (answerIndex) => () => {
+    dispatch({
+      type: 'TOGGLE_ANSWER',
+      questionIndex: index,
+      answerIndex
     });
-    return answerMap;
-  };
+  }
 
   let possibleAnswerList = [];
-  if (answers) {
-    possibleAnswerList = answers
-      .map((answer) =>
-        <PossibleAnswer
-          key={answer.id}
-          text={answer.text}
-          isCorrect={answer.correct}
-          id={answer.id} />
-      );
-  }
+  possibleAnswerList = question.answers
+    .map((answer, index) =>
+      <PossibleAnswer
+        key={index}
+        text={answer.text}
+        onChange={handleChange(index)} />
+    );
 
   return (
     <View>
-      <Image source={image} />
-      <QuestionTitle>{title}</QuestionTitle>
+      <Image source={question.image} />
+      <QuestionTitle>{question.title}</QuestionTitle>
       {possibleAnswerList}
     </View>
   );

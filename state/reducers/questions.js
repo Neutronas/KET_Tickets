@@ -1,17 +1,21 @@
+import { Alert } from "react-native";
+
 const question = (state = {}, action) => {
     switch (action.type) {
         case 'TOGGLE_ANSWER': {
+            const newAnswers = state.answers.map((answer, index) => {
+                if (index !== action.answerIndex)
+                    return answer;
+                return {
+                    ...answer,
+                    isChecked: !answer.isChecked,
+                }
+            });
             return {
                 ...state,
-                answers: answers.map((answer, index) => {
-                    if (index !== action.answerIndex)
-                        return answer;
-                    return {
-                        ...answer,
-                        isChecked: !answer.isChecked,
-                    }
-                }),
-                hasCheckedAnswers: answers.some((answer) => answer.isChecked),
+                answers: newAnswers,
+                isAnsweredCorrectly: newAnswers.every((answer) => answer.correct === answer.isChecked),
+                hasCheckedAnswers: newAnswers.some((answer) => answer.isChecked),
             }
         }
         default:

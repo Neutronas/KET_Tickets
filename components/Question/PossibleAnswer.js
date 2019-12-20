@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-import { ticketsStore } from '../../data/ticketsStore';
+const PossibleAnswer = ({ text, onChange }) => {
+  const [isMarked, setIsMarked] = useState(false);
 
-const PossibleAnswer = ({ id, text }) => {
-  const [isMarked, setIsMarked] = useState(true);
+  useEffect(() => {
+    setIsMarked(false)
+  }, [text]);
 
   const handlePress = () => {
+    onChange();
     setIsMarked(!isMarked);
-
-    if (!isMarked)
-      ticketsStore.addAnswerToMap(id);
-    else
-      ticketsStore.removeAnswerFromMap(id);
   };
 
   return (
@@ -24,7 +22,7 @@ const PossibleAnswer = ({ id, text }) => {
       onPress={handlePress}>
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.optionIconContainer}>
-          <Ionicons name={isMarked ? 'ios-checkbox-outline' : 'ios-checkbox'} size={26} color="#2e78b7" />
+          <Ionicons name={isMarked ? 'ios-checkbox' : 'ios-checkbox-outline'} size={26} color="#2e78b7" />
         </View>
         <View style={styles.optionTextContainer}>
           <Text style={styles.optionText}>{text}</Text>
