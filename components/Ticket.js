@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Button, Alert } from 'react-native';
-import { Question } from './Question';
+import Question from './Question/Question';
 
 // temp fake database file, will need rework
 import { database } from '../data/database';
@@ -16,7 +16,7 @@ export class Ticket extends Component {
 
     getInitialState() {
         ticketsStore.questions = [];
-        this.setState  ({
+        this.setState({
             currentQuestion: 0,
         });
     }
@@ -50,20 +50,20 @@ export class Ticket extends Component {
                 }
             });
             Alert.alert(
-                'Testas baigtas', 
+                'Testas baigtas',
                 'Viso klausimų: ' + ticketsStore.questions.length + '. Teisingai atsakyta: ' + correctAnswers + '. Surinkta ' + Math.floor((correctAnswers / ticketsStore.questions.length) * 100) + '%',
                 [
                     {
                         text: 'Iš naujo',
                         onPress: () => this.getInitialState(),
                         style: 'cancel',
-                      },
-                    {
-                      text: 'Rezultatas',
-                      onPress: () => console.log('Nori peržiūrėti rezultatus'),
                     },
-                  ],
-                );
+                    {
+                        text: 'Rezultatas',
+                        onPress: () => console.log('Nori peržiūrėti rezultatus'),
+                    },
+                ],
+            );
             console.log(ticketsStore.questions);
         }
     }

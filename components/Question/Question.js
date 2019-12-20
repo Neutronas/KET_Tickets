@@ -4,8 +4,7 @@ import { PossibleAnswer } from './PossibleAnswer';
 import { ticketsStore } from '../../data/ticketsStore';
 import QuestionTitle from './QuestionTitle';
 
-export const Question = ({ id, image, title, answers }) => {
-
+export default Question = ({ id, image, title, answers }) => {
   useEffect(() => {
     ticketsStore.markQuestion(id, getCorrectAnswerMap());
   }, [id]);
