@@ -18,4 +18,9 @@ const styles = StyleSheet.create({
   },
 });
 
+ResultsScreen.navigationOptions = {
+    title: 'Rezultatai',
+    headerLeft: null
+};
+
 export default ResultsScreen;
