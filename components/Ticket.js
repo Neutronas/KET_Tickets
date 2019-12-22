@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Button, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 import Question from './Question/Question';
 import QuestionSelect from './QuestionSelect/QuestionSelect';
-import { withNavigation } from 'react-navigation';
+import Navigation from './Navigation';
 
 
 const Ticket = ({ navigation }) => {
@@ -26,18 +27,22 @@ const Ticket = ({ navigation }) => {
         setCurrentQuestion(questionIndex);
     };
 
+    const handleNavigationPress = (change) => () => {
+        if (change > 0 && moreQuestions)
+            setCurrentQuestion(currentQuestion + 1);
+        if (change < 0 && currentQuestion != 0)
+            setCurrentQuestion(currentQuestion - 1);
+    };
+
     return (
         <View>
             <Question
                 index={currentQuestion}
                 question={questions[currentQuestion]}
             />
-            {moreQuestions ?
-                <Button
-                    title="Kitas klausimas"
-                    onPress={handleNextQuestionButtonPress}
-                />
-                : null}
+            <Navigation
+                onPress={handleNavigationPress}
+            />
             <QuestionSelect
                 activeQuestionIndex={currentQuestion}
                 onPress={handleQuestionSelectPress}
