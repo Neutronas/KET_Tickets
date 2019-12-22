@@ -19,7 +19,22 @@ const Ticket = ({ navigation }) => {
     }
 
     const handleFinishButtonPress = () => {
-        navigation.navigate('Results')
+        Alert.alert(
+            'Egzamino pabaiga',
+            'Ar norite užbaigti savo egzaminą?',
+            [
+                    {
+                        text: 'Ne', 
+                        style: 'cancel'
+                    },
+                    {
+                        text: 'Taip', 
+                        onPress: () => navigation.navigate('Results')
+                    }
+            ],
+            {cancelable: false},
+          );
+        
     }
 
     const handleQuestionSelectPress = (questionIndex) => () => {
