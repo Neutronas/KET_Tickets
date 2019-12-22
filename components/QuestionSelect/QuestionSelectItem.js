@@ -1,27 +1,47 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
-export default QuestionSelectItem = ({ questionIndex, isActive, onPress }) => {
+export default QuestionSelectItem = ({ questionIndex, isActive, isVisited, onPress }) => {
+    console.log(isVisited ? [styles.visitedContainer] : '', isActive ? [styles.container, styles.activeContainer] : styles.container);
     return (
-        <Text
-            style={isActive ? [styles.item, styles.activeItem] : styles.item}
-            onPress={onPress}
-        >
-            {questionIndex + 1}
-        </Text>
+         <View style={isActive ? [styles.container, styles.activeContainer] : isVisited ? [styles.visitedContainer, styles.container] : styles.container} >
+            <Text
+                style={isActive ? [styles.item, styles.activeItem] : styles.item}
+                onPress={onPress}
+            >
+                {questionIndex + 1}
+            </Text>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    item: {
-        paddingRight: 15,
-        paddingLeft: 15,
+    container: {
+        width: 50,
+        height: 50,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         borderRightWidth: StyleSheet.hairlineWidth,
         borderRightColor: '#EDEDED',
     },
+    visitedContainer: {
+        backgroundColor: '#eeeeee',
+    },
+    activeContainer: {
+        backgroundColor: '#003300',
+        color: '#ffffff'
+    },
+    item: {
+        paddingRight: 15,
+        paddingLeft: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        //borderRightWidth: StyleSheet.hairlineWidth,
+        // borderRightColor: '#EDEDED',
+    },
     activeItem: {
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        color: '#ffffff'
     }
 });

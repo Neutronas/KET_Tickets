@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import QuestionSelectItem from './QuestionSelectItem';
 
-export default QuestionSelect = ({ activeQuestionIndex, onPress }) => {
+export default QuestionSelect = ({activeQuestionIndex, onPress }) => {
     const questions = useSelector(state => state.questions);
     const totalQuestions = Object.keys(questions).length;
 
@@ -17,6 +17,7 @@ export default QuestionSelect = ({ activeQuestionIndex, onPress }) => {
                 questionIndex={i}
                 key={i}
                 isActive={isActive}
+                isVisited={questions[i].isVisited}
                 onPress={onPress(i)}
             />
         );

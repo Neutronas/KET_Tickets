@@ -18,6 +18,12 @@ const question = (state = {}, action) => {
                 hasCheckedAnswers: newAnswers.some((answer) => answer.isChecked),
             }
         }
+        case 'TOGGLE_VISITED': {
+            return {
+                ...state,
+                isVisited: true
+            }
+        }
         default:
             return state
     }
@@ -26,6 +32,12 @@ const question = (state = {}, action) => {
 const questions = (state = {}, action) => {
     switch (action.type) {
         case 'TOGGLE_ANSWER': {
+            return {
+                ...state,
+                [action.questionIndex]: question(state[action.questionIndex], action)
+            }
+        }
+        case 'TOGGLE_VISITED': {
             return {
                 ...state,
                 [action.questionIndex]: question(state[action.questionIndex], action)

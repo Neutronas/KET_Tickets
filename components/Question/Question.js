@@ -7,6 +7,12 @@ import QuestionTitle from './QuestionTitle';
 
 export default Question = ({ index, question }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({
+      type: 'TOGGLE_VISITED',
+      questionIndex: index,
+    });
+  }, [index]);
 
   const handleChange = (answerIndex) => () => {
     dispatch({
