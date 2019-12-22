@@ -5,6 +5,7 @@ export default questions = {
         image: require("../assets/images/ketPlaceholder.jpg"),
         hasCheckedAnswers: false,
         isAnsweredCorrectly: false,
+        isVisited: false,
         answers: [
             {
                 id: 1,
@@ -38,6 +39,7 @@ export default questions = {
         image: require("../assets/images/ketPlaceholder.jpg"),
         hasCheckedAnswers: false,
         isAnsweredCorrectly: false,
+        isVisited: false,
         answers: [
             {
                 id: 5,
