@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
         height: 50,
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRightWidth: StyleSheet.hairlineWidth,
+        borderRightColor: '#EDEDED',
     },
     visitedContainer: {
         backgroundColor: '#eeeeee',
@@ -36,10 +38,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         //borderRightWidth: StyleSheet.hairlineWidth,
-        borderRightColor: '#EDEDED',
+        // borderRightColor: '#EDEDED',
     },
     activeItem: {
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         color: '#ffffff'
     }
 });
