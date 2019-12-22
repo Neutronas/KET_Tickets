@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Question from './Question/Question';
 import QuestionSelect from './QuestionSelect/QuestionSelect';
+import { withNavigation } from 'react-navigation';
 
 
-export const Ticket = () => {
+const Ticket = ({ navigation }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     let questions = useSelector(state => state).questions;
 
@@ -18,12 +19,7 @@ export const Ticket = () => {
     }
 
     const handleFinishButtonPress = () => {
-        let score = 0;
-        for (let key in questions) {
-            if (questions[key].isAnsweredCorrectly)
-                score++;
-        }
-        Alert.alert(score / totalNumberOfQuestions * 100 + '%')
+        navigation.navigate('Results')
     }
 
     const handleQuestionSelectPress = (questionIndex) => () => {
@@ -53,3 +49,5 @@ export const Ticket = () => {
         </View>
     );
 };
+
+export default withNavigation(Ticket);
