@@ -5,23 +5,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const PossibleAnswer = ({ text, onChange, isChecked }) => {
-  const [isMarked, setIsMarked] = useState(isChecked);
-
-  useEffect(() => {
-    setIsMarked(isChecked)
-  }, [isChecked]);
-
-  const handlePress = () => {
-    onChange();
-  };
-
   return (
     <TouchableWithoutFeedback
       style={styles.option}
-      onPress={handlePress}>
+      onPress={onChange}>
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.optionIconContainer}>
-          <Ionicons name={isMarked ? 'ios-checkbox' : 'ios-checkbox-outline'} size={26} color="#2e78b7" />
+          <Ionicons name={isChecked ? 'ios-checkbox' : 'ios-checkbox-outline'} size={26} color="#2e78b7" />
         </View>
         <View style={styles.optionTextContainer}>
           <Text style={styles.optionText}>{text}</Text>
