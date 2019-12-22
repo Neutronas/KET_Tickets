@@ -4,16 +4,15 @@ import Touchable from 'react-native-platform-touchable';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-const PossibleAnswer = ({ text, onChange }) => {
-  const [isMarked, setIsMarked] = useState(false);
+const PossibleAnswer = ({ text, onChange, isChecked }) => {
+  const [isMarked, setIsMarked] = useState(isChecked);
 
   useEffect(() => {
-    setIsMarked(false)
-  }, [text]);
+    setIsMarked(isChecked)
+  }, [isChecked]);
 
   const handlePress = () => {
     onChange();
-    setIsMarked(!isMarked);
   };
 
   return (

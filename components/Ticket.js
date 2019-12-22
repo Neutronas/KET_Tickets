@@ -3,6 +3,7 @@ import { View, Button, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Question from './Question/Question';
+import QuestionSelect from './QuestionSelect/QuestionSelect';
 
 
 export const Ticket = () => {
@@ -14,7 +15,6 @@ export const Ticket = () => {
 
     const handleNextQuestionButtonPress = () => {
         setCurrentQuestion(currentQuestion + 1);
-        Alert.alert(JSON.stringify(questions[currentQuestion]));
     }
 
     const handleFinishButtonPress = () => {
@@ -26,6 +26,10 @@ export const Ticket = () => {
         Alert.alert(score / totalNumberOfQuestions * 100 + '%')
     }
 
+    const handleQuestionSelectPress = (questionIndex) => () => {
+        setCurrentQuestion(questionIndex);
+    };
+
     return (
         <View>
             <Question
@@ -35,11 +39,17 @@ export const Ticket = () => {
             {moreQuestions ?
                 <Button
                     title="Kitas klausimas"
-                    onPress={handleNextQuestionButtonPress} />
+                    onPress={handleNextQuestionButtonPress}
+                />
                 : null}
+            <QuestionSelect
+                activeQuestionIndex={currentQuestion}
+                onPress={handleQuestionSelectPress}
+            />
             <Button
                 title="Baigti"
-                onPress={handleFinishButtonPress} />
+                onPress={handleFinishButtonPress}
+            />
         </View>
     );
 };
