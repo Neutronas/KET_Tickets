@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Button, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 import Question from './Question/Question';
 
 
-export const Ticket = () => {
+const Ticket = ({navigation}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     let questions = useSelector(state => state).questions;
 
@@ -23,7 +24,8 @@ export const Ticket = () => {
             if (questions[key].isAnsweredCorrectly)
                 score++;
         }
-        Alert.alert(score / totalNumberOfQuestions * 100 + '%')
+        navigation.navigate('Results')
+        // Alert.alert(score / totalNumberOfQuestions * 100 + '%')
     }
 
     return (
@@ -43,3 +45,5 @@ export const Ticket = () => {
         </View>
     );
 };
+
+export default withNavigation(Ticket);

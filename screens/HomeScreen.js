@@ -6,7 +6,7 @@ import {
   StatusBar
 } from 'react-native';
 
-import { Ticket } from '../components/Ticket';
+import Ticket from '../components/Ticket';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function HomeScreen() {

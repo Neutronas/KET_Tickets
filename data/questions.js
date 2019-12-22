@@ -9,7 +9,7 @@ export default questions = {
             {
                 id: 1,
                 text: "Hahahahaa",
-                correct: true,
+                correct: false,
                 isChecked: false,
             },
             {
@@ -21,7 +21,7 @@ export default questions = {
             {
                 id: 3,
                 text: "Baltas automobilis pastatytas ne pagal taisykles",
-                correct: false,
+                correct: true,
                 isChecked: false,
             },
             {
