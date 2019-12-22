@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
         color: '#ffffff'
     },
     item: {
-        paddingRight: 15,
-        paddingLeft: 15,
+        padding: 20,
         justifyContent: 'center',
         alignItems: 'center',
         //borderRightWidth: StyleSheet.hairlineWidth,
