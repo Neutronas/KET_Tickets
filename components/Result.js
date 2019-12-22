@@ -5,19 +5,18 @@ import { withNavigation } from 'react-navigation';
 
 
 const Result = ({navigation}) => {
-    const calculateScore = () => {
-        const questions = useSelector(state => state).questions;
-        let score = 0;
+    const questions = useSelector(state => state).questions;
+    let [score, setScore] = useState(0);
+
+    useEffect(() => {
         for (let key in questions) {
+            console.log(questions[key].title + ' yra atsakymas: ');
+            console.log(questions[key].isAnsweredCorrectly);
             if (questions[key].isAnsweredCorrectly)
                 score++;
         }
-        return score;
-    }
-
-    const [score, setScore] = useState(calculateScore);
-    
-
+        setScore(score);
+      }, []);    
 
     const totalNumberOfQuestions = Object.keys(questions).length;
 

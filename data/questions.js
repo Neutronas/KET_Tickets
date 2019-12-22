@@ -15,7 +15,7 @@ export default questions = {
             {
                 id: 2,
                 text: "Juodas automobilis pastatytas ne pagal taisykles",
-                correct: false,
+                correct: true,
                 isChecked: false,
             },
             {
